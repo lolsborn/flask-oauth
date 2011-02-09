@@ -273,6 +273,7 @@ class OAuthRemoteApp(object):
         or use a remotely stored callback URL.  Alternatively it's an URL
         on the system that has to be decorated as :meth:`authorized_handler`.
         """
+        self.free_request_token()
         token = self.generate_request_token(callback)[0]
         url = '%s?oauth_token=%s' % (self.expand_url(self.authorize_url),
                                      url_quote(token))
